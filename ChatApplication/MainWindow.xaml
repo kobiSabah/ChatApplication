@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatApplication"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button HorizontalAlignment="Right"
+                Background="{x:Null}"
+                BorderThickness="0"
+                Name="ExitButton"
+                Click="ExitButton_OnClick">
+            <materialDesign:PackIcon Kind="ExitToApp" Foreground="{StaticResource DarkBlueBrush}"
+                                     Height="20"
+                                     Width="20"/>
+        </Button>
+
+        <Frame Grid.Row="1" Name="MainFrame"
+               Content="{Binding CurrentPage, Converter={local:PageConverter}}"/>
         
     </Grid>
+        
 </Window>

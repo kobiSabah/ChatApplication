@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace ChatApplication
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ContactList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ContactList : UserControl
     {
-        public MainWindow()
+        public ContactList()
         {
             InitializeComponent();
-            DataContext = new WindowViewModel(this);
-        }
-
-        private void ExitButton_OnClick(object i_Sender, RoutedEventArgs i_E)
-        {
-            Close();
         }
     }
 }

@@ -1,0 +1,113 @@
+﻿<Page x:Class="ChatApplication.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChatApplication"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="300"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      Title="LoginPage">
+
+    <StackPanel Width="300" Height="350" Margin="0,30,0,30">
+        <!-- Login text -->
+        <TextBlock Text="Login"
+                   Margin="30,0,0,0"
+                   Foreground="{StaticResource TurquoiseBrush}" 
+                   FontSize="20" 
+                   FontWeight="Bold">
+
+        </TextBlock>
+
+        <!-- UserName -->
+        <StackPanel Orientation="Horizontal"
+                    Margin="20,30,0,30">
+            <!-- Contact picture -->
+            <materialDesign:PackIcon Kind="Contact"/>
+
+            <!-- Username text box -->
+            <TextBox VerticalContentAlignment="Center"
+                     materialDesign:HintAssist.Hint="Username"
+                     materialDesign:BottomDashedLineAdorner.Brush="{StaticResource TurquoiseBrush}"
+                     Foreground="{StaticResource TurquoiseBrush}"
+                     Width="200"
+                     Margin="20,0,0,0"/>
+        </StackPanel>
+
+        <!-- Password -->
+        <StackPanel Orientation="Horizontal"
+                    Margin="20,0,0,0">
+            <!-- Contact password -->
+            <materialDesign:PackIcon Kind="Key" HorizontalAlignment="Center"/>
+
+            <!-- Password field -->
+            <PasswordBox VerticalContentAlignment="Center"
+                         materialDesign:BottomDashedLineAdorner.Brush="{StaticResource TurquoiseBrush}"
+                         materialDesign:HintAssist.Hint="Password"
+                         Foreground="{StaticResource TurquoiseBrush}"
+                         Width="200"
+                         Margin="20,0,0,0">
+
+            </PasswordBox>
+        </StackPanel>
+
+        <!-- Login button -->
+        <Button Content="Login"
+                HorizontalAlignment="Center"
+                Margin="0,40"
+                Background="{x:Null}"
+                Foreground="{StaticResource TurquoiseBrush}"
+                BorderThickness="0.5"
+                BorderBrush="White">
+
+        </Button>
+
+        <!-- Social network -->
+        
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <!-- Google plus -->
+            <Button Background="{x:Null}"
+                    Foreground="{StaticResource TurquoiseBrush}"
+                    BorderThickness="0.5"
+                    BorderBrush="White">
+                <materialDesign:PackIcon Kind="GooglePlus"/>
+            </Button>
+            <!-- Facebook -->
+            <Button Background="{x:Null}"
+                    Foreground="{StaticResource TurquoiseBrush}"
+                    BorderThickness="0.5"
+                    BorderBrush="White">
+                <materialDesign:PackIcon Kind="Facebook"/>
+            </Button>
+            <!--Instagram-->
+            <Button Background="{x:Null}"
+                    Foreground="{StaticResource TurquoiseBrush}"
+                    BorderThickness="0.5"
+                    BorderBrush="White">
+                <materialDesign:PackIcon Kind="Instagram"/>
+            </Button>
+            <!-- Gmail -->
+            <Button Background="{x:Null}"
+                    Foreground="{StaticResource TurquoiseBrush}"
+                    BorderThickness="0.5"
+                    BorderBrush="White">
+                <materialDesign:PackIcon Kind="Gmail"/>
+            </Button>
+            <Button Background="{x:Null}"
+                    Foreground="{StaticResource TurquoiseBrush}"
+                    BorderThickness ="0.5"
+                    BorderBrush="White">
+                <materialDesign:PackIcon Kind="Twitter"></materialDesign:PackIcon>
+            </Button>
+        </StackPanel>
+
+    </StackPanel>
+</Page>
