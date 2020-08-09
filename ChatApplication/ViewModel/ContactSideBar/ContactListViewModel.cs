@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChatApplication
 {
-    public class ContactListViewModel
+    public class ContactListViewModel : BaseViewModel
     {
         public List<ContactItemViewModel> Items { get; set; }
     }

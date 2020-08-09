@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ChatApplication
 { 
-    public class ChatMessageListViewModel
+    public class ChatMessageListViewModel : BaseViewModel
     {
         public ObservableCollection<ChatMessageItemViewModel> Item { get; set; }
 

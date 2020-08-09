@@ -16,11 +16,12 @@
       FontFamily="{DynamicResource MaterialDesignFont}"
       Title="LoginPage">
 
-    <StackPanel Width="300" Height="350" Margin="0,30,0,30">
+    <StackPanel Width="300" Height="350" Margin="0,30,0,0"
+                DataContext="{x:Static local:LoginPageDesignModel.Instance}">
         <!-- Login text -->
         <TextBlock Text="Login"
                    Margin="30,0,0,0"
-                   Foreground="{StaticResource TurquoiseBrush}" 
+                   Foreground="{StaticResource DarkBlueBrush}" 
                    FontSize="20" 
                    FontWeight="Bold">
 
@@ -35,8 +36,8 @@
             <!-- Username text box -->
             <TextBox VerticalContentAlignment="Center"
                      materialDesign:HintAssist.Hint="Username"
-                     materialDesign:BottomDashedLineAdorner.Brush="{StaticResource TurquoiseBrush}"
-                     Foreground="{StaticResource TurquoiseBrush}"
+                     materialDesign:BottomDashedLineAdorner.Brush="{StaticResource DarkBlueBrush}"
+                     Foreground="{StaticResource DarkBlueBrush}"
                      Width="200"
                      Margin="20,0,0,0"/>
         </StackPanel>
@@ -49,25 +50,29 @@
 
             <!-- Password field -->
             <PasswordBox VerticalContentAlignment="Center"
-                         materialDesign:BottomDashedLineAdorner.Brush="{StaticResource TurquoiseBrush}"
+                         materialDesign:BottomDashedLineAdorner.Brush="{StaticResource DarkBlueBrush}"
                          materialDesign:HintAssist.Hint="Password"
-                         Foreground="{StaticResource TurquoiseBrush}"
+                         Foreground="{StaticResource DarkBlueBrush}"
                          Width="200"
                          Margin="20,0,0,0">
 
             </PasswordBox>
         </StackPanel>
 
-        <!-- Login button -->
-        <Button Content="Login"
-                HorizontalAlignment="Center"
-                Margin="0,40"
-                Background="{x:Null}"
-                Foreground="{StaticResource TurquoiseBrush}"
-                BorderThickness="0.5"
-                BorderBrush="White">
+        <StackPanel>
+            <!-- Login button -->
+            <Button Content="Login"
+                    HorizontalAlignment="Center"
+                    Margin="0,40"
+                    Background="{x:Null}"
+                    Foreground="{StaticResource DarkBlueBrush}"
+                    BorderThickness="0.5"
+                    BorderBrush="White"
+                    Command="{Binding OpenLoginCommand}"
+                    >
+            </Button>
+        </StackPanel>
 
-        </Button>
 
         <!-- Social network -->
         
@@ -75,39 +80,46 @@
                     HorizontalAlignment="Center">
             <!-- Google plus -->
             <Button Background="{x:Null}"
-                    Foreground="{StaticResource TurquoiseBrush}"
+                    Foreground="{StaticResource DarkBlueBrush}"
                     BorderThickness="0.5"
                     BorderBrush="White">
                 <materialDesign:PackIcon Kind="GooglePlus"/>
             </Button>
             <!-- Facebook -->
             <Button Background="{x:Null}"
-                    Foreground="{StaticResource TurquoiseBrush}"
+                    Foreground="{StaticResource DarkBlueBrush}"
                     BorderThickness="0.5"
                     BorderBrush="White">
                 <materialDesign:PackIcon Kind="Facebook"/>
             </Button>
             <!--Instagram-->
             <Button Background="{x:Null}"
-                    Foreground="{StaticResource TurquoiseBrush}"
+                    Foreground="{StaticResource DarkBlueBrush}"
                     BorderThickness="0.5"
                     BorderBrush="White">
                 <materialDesign:PackIcon Kind="Instagram"/>
             </Button>
             <!-- Gmail -->
             <Button Background="{x:Null}"
-                    Foreground="{StaticResource TurquoiseBrush}"
+                    Foreground="{StaticResource DarkBlueBrush}"
                     BorderThickness="0.5"
                     BorderBrush="White">
                 <materialDesign:PackIcon Kind="Gmail"/>
             </Button>
             <Button Background="{x:Null}"
-                    Foreground="{StaticResource TurquoiseBrush}"
+                    Foreground="{StaticResource DarkBlueBrush}"
                     BorderThickness ="0.5"
                     BorderBrush="White">
                 <materialDesign:PackIcon Kind="Twitter"></materialDesign:PackIcon>
             </Button>
         </StackPanel>
+
+        <Button Content="Don't have account"
+                Foreground="{StaticResource DarkBlueBrush}"
+                Background="{x:Null}"
+                BorderThickness="0"
+                Command="{Binding OpenRegisterCommand}">
+        </Button>
 
     </StackPanel>
 </Page>

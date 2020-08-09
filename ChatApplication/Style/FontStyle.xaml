@@ -10,6 +10,7 @@
     <Color x:Key="DarkBlue">#263238</Color>
     <Color x:Key="FineBlue">#455A64</Color>
     <Color x:Key="LightBlue">#90A4AE</Color>
+    <Color x:Key="ShadowBlue">#546E7A</Color>
 
 
     <SolidColorBrush x:Key="LightWhite" Color="{StaticResource VeryLightWhite}"/>
@@ -19,6 +20,7 @@
     <SolidColorBrush x:Key="DarkBlueBrush" Color="{StaticResource DarkBlue}"/>
     <SolidColorBrush x:Key="FineBlueBrush" Color="{StaticResource FineBlue}"/>
     <SolidColorBrush x:Key="LightBlueBrush" Color="{StaticResource LightBlue}"/>
+    <SolidColorBrush x:Key="ShadowBlueBrush" Color="{StaticResource ShadowBlue}"/>
     <!-- Font size -->
 
     <system:Double x:Key="VerySmall">10</system:Double>

@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid DataContext="{x:Static local:ChatMessageListDesignModel.Instance}">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl Name="MessageList" ItemsSource="{Binding Item, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <ItemsControl Name="MessageList" ItemsSource="{Binding Item}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:MessageItemControl/>

@@ -8,14 +8,11 @@ using System.Windows;
 
 namespace ChatApplication
 {
-    class SendByMeBubbleColorConverter : BaseConverter<SendByMeBubbleColorConverter>
+    class IsSelectedVisibleConverter : BaseConverter<IsSelectedVisibleConverter>
     {
-        //private string m_SenderColor = "#78909C";
-        private string m_SenderColor = "#607D8B";
-        private string m_ReceiveMessageColor = "#263238";
         public override object Convert(object i_Value, Type i_TargetType, object i_Parameter, CultureInfo i_Culture)
         {
-            return (bool)i_Value ? m_SenderColor : m_ReceiveMessageColor;
+            return (bool)i_Value ? Visibility.Visible : Visibility.Hidden;
         }
 
         public override object ConvertBack(object i_Value, Type i_TargetType, object i_Parameter, CultureInfo i_Culture)

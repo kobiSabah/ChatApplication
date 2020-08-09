@@ -4,35 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ChatApplication"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="800">
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="60" d:DesignWidth="800">
     <StackPanel Orientation="Horizontal" DataContext="{x:Static local:ContactItemDesignModel.Instance }">
         <!-- Profile picture -->
         <Border Width="40"
                 Height="40"
                 Background="{Binding ProfileColor}"
-                CornerRadius="30">
+                CornerRadius="30"
+                VerticalAlignment="Top">
 
+            <!-- NickName -->
             <TextBlock Text="{Binding NickName}"
-                       FontSize="{StaticResource Regular}"
-                       Foreground="{StaticResource FineBlueBrush}"
+                       FontSize="{StaticResource Large}"
+                       Foreground="{StaticResource VeryLightBlueBrush}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       FontWeight="Light">
+                       >
 
             </TextBlock>
         </Border>
-
-        <StackPanel Margin="10,0,0,0">
+            
+        <!-- Name -->
+        <StackPanel Margin="20,10,0,0">
             <TextBlock Text="{Binding Name}"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
                        FontSize="{StaticResource Regular}"
                        FontWeight="Bold"
-                       Foreground="{StaticResource GrayBlueBrush}">
-                        
-            </TextBlock>
+                       Foreground="{StaticResource DarkBlueBrush}">
 
+            </TextBlock>
         </StackPanel>
+
     </StackPanel>
 </UserControl>

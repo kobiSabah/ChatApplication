@@ -1,0 +1,62 @@
+﻿<Page x:Class="ChatApplication.AddContactPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChatApplication"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="350"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      Title="AddContactPage">
+
+    <StackPanel>
+        <!-- Search Title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Title -->
+            <TextBlock Grid.Column="0" Text="Search for new friend"
+                       Foreground="{StaticResource FineBlueBrush}"
+                       FontWeight="Bold"
+                       FontSize="{StaticResource VeryLarge}"
+                       Margin="10">
+            </TextBlock>
+
+            <!-- Search Icon -->
+            <materialDesign:PackIcon Kind="AccountsAdd" Grid.Column="1"
+                                     Foreground="{StaticResource FineBlueBrush}"
+                                     VerticalContentAlignment="Center"
+                                     Width="30"
+                                     Height="30"
+                                     Margin="0,10,0,0"/>
+            
+        </Grid>
+
+        <TextBlock Text="Search by NickName : "
+                   FontSize="{StaticResource Regular}"></TextBlock>
+        <TextBox materialDesign:HintAssist.Hint="NickName"/>
+
+        <TextBlock Text="Search by email :"></TextBlock>
+        <TextBox materialDesign:HintAssist.Hint="Email"></TextBox>
+
+        <!-- Search button -->
+        <Button HorizontalAlignment="Right"
+                Background="{x:Null}"
+                BorderThickness="0.2">
+            <materialDesign:PackIcon Kind="Search" Foreground="{StaticResource FineBlueBrush}"
+                                     Width="30"
+                                     Height="30"
+                                     Padding="0,10,0,0"></materialDesign:PackIcon>
+        </Button>
+    </StackPanel>
+</Page>

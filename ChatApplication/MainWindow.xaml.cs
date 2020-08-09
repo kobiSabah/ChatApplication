@@ -30,5 +30,20 @@ namespace ChatApplication
         {
             Close();
         }
+
+        private void MinimizeButton_OnClick(object i_Sender, RoutedEventArgs i_E)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void MaximizeButton_OnClick(object i_Sender, RoutedEventArgs i_E)
+        {
+            this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        private void OnMouseDownDragWindow(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

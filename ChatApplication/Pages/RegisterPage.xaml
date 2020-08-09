@@ -6,9 +6,95 @@
       xmlns:local="clr-namespace:ChatApplication"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RegisterPage">
-
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Register">
     <Grid>
-        
+
+        <!-- Login text block -->
+        <StackPanel Margin="10,10,0,0">
+            <TextBlock Text="Register" Foreground="{StaticResource DarkBlueBrush}" FontSize="20" FontWeight="Bold" VerticalAlignment="Bottom" Margin="5,0,0,20"  />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- First Name -->
+                <materialDesign:PackIcon Kind="AccountBox" VerticalAlignment="Center" Margin="3"/>
+                <TextBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="First Name" Width="250" Margin="5" CaretBrush="#FF35646E"/>
+
+                <!-- Last Name -->
+                <materialDesign:PackIcon Kind="AccountBox" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="3"/>
+                <TextBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Last Name" Width="250" Margin="5" CaretBrush="#FF35646E"/>
+
+                <!-- Birthday -->
+                <materialDesign:PackIcon Grid.Column="0" Grid.Row="2" Kind="BirthdayCake" VerticalAlignment="Center" Margin="3"/>
+                <DatePicker Grid.Row="2" Grid.Column="0" Width="250" Margin="5" materialDesign:HintAssist.Hint="Birthday" ></DatePicker>
+
+                <!-- Phone Number -->
+                <materialDesign:PackIcon Grid.Column="1" Grid.Row="1" Kind="Phone" VerticalAlignment="Center" Margin="3"/>
+                <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Phone Number" Width="250" Margin="5"></TextBox>
+
+                <!-- Mail -->
+                <materialDesign:PackIcon Grid.Column="0" Grid.Row="1" Kind="Mail" VerticalAlignment="Center" Margin="3"/>
+                <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Mail Adders" Width="250" Margin="5" CaretBrush="#FF35646E"/>
+
+
+                <!-- NickName -->
+                <materialDesign:PackIcon Grid.Column="0" Grid.Row="3" Kind="Account" VerticalAlignment="Center" Margin="3"/>
+                <TextBox Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="Nickname" Width="250" Margin="5"></TextBox>
+
+
+                <!-- Password -->
+                <materialDesign:PackIcon Grid.Column="0" Grid.Row="4" Kind="Key" VerticalAlignment="Center" Margin="3"/>
+                <PasswordBox Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="Password" Width="250" Margin="5"></PasswordBox>
+
+                <!-- Password verify -->
+                <materialDesign:PackIcon Grid.Column="0" Grid.Row="5" Kind="Key" VerticalAlignment="Center" Margin="3"/>
+                <PasswordBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="Password verify" Width="250" Margin="5"></PasswordBox>
+
+                <!-- Image -->
+                <materialDesign:PackIcon Grid.Row="5" Grid.Column="1" Kind="ImageAdd"></materialDesign:PackIcon>
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="Profile Image" HorizontalAlignment="Center" FontSize="15"></TextBlock>
+                <Grid Grid.Column="1" Grid.Row="6">
+                    <Image Name ="ProfileImage"  Width="150">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="130" RadiusY="170" FrameworkElement.FlowDirection="RightToLeft">
+                                <EllipseGeometry.Transform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-84.806"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </EllipseGeometry.Transform>
+                            </EllipseGeometry>
+                        </Image.Clip>
+                    </Image>
+                </Grid>
+
+                <!-- Upload image -->
+
+                <Button  Grid.Row="7" Grid.Column="1" Content="Upload" Background="{StaticResource DarkBlueBrush}" Width="100" HorizontalAlignment="Right"/>
+
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>

@@ -28,7 +28,7 @@
 
         <!-- Add contact logo -->
         <Button Grid.Column="1" Background="{x:Null}" BorderBrush="{x:Null}">
-            <materialDesign:PackIcon Kind="ImportContacts" Foreground="{StaticResource FineBlueBrush}" Width="20" Height="20"></materialDesign:PackIcon>
+            <materialDesign:PackIcon Kind="AccountsAdd" Foreground="{StaticResource FineBlueBrush}" Width="20" Height="20"></materialDesign:PackIcon>
         </Button>
 
         <!-- Search contact logo -->

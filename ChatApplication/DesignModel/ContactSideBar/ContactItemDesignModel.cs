@@ -21,6 +21,7 @@ namespace ChatApplication
             NickName = "SK";
             ProfileColor = "#4b86b4";
             Message = "Hi, How are you today ?? every thing is good.... ?";
+            IsSelected = false;
         }
 
     }

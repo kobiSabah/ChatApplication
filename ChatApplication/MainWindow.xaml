@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        AllowsTransparency="True"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -15,27 +16,60 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" MouseDown="OnMouseDownDragWindow">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Border CornerRadius="50">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Button HorizontalAlignment="Right"
-                Background="{x:Null}"
-                BorderThickness="0"
-                Name="ExitButton"
-                Click="ExitButton_OnClick">
-            <materialDesign:PackIcon Kind="ExitToApp" Foreground="{StaticResource DarkBlueBrush}"
-                                     Height="20"
-                                     Width="20"/>
-        </Button>
+            <Grid HorizontalAlignment ="Right" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-        <Frame Grid.Row="1" Name="MainFrame"
-               Content="{Binding CurrentPage, Converter={local:PageConverter}}"/>
-        
-    </Grid>
-        
+                <Button Grid.Column="2" HorizontalAlignment="Right"
+                        Background="{x:Null}"
+                        BorderThickness="0"
+                        Name="ExitButton"
+                        Click="ExitButton_OnClick">
+                    <materialDesign:PackIcon Kind="WindowClose" Foreground="{StaticResource DarkBlueBrush}"
+                                             Height="10"
+                                             Width="10"/>
+                </Button>
+
+                <Button Grid.Column="0" HorizontalAlignment="Right"
+                        Background="{x:Null}"
+                        BorderThickness="0"
+                        Name="MinimizeButton"
+                        Click="MinimizeButton_OnClick">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="{StaticResource DarkBlueBrush}"
+                                             Height="10"
+                                             Width="10"/>
+                </Button>
+
+                <Button Grid.Column="1" HorizontalAlignment="Right"
+                        Background="{x:Null}"
+                        BorderThickness="0"
+                        Name="MaximizeButton"
+                        Click="MaximizeButton_OnClick">
+                    <materialDesign:PackIcon Kind="WindowMaximize" Foreground="{StaticResource DarkBlueBrush}"
+                                             Height="10"
+                                             Width="10"/>
+                </Button>
+
+
+
+            </Grid>
+
+                <Frame Grid.Row="1" Name="MainFrame"
+                       Content="{Binding CurrentPage,Converter={local:PageConverter}}"/>
+            
+        </Grid>
+    </Border>
+
 </Window>

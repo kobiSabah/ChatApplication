@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChatApplication
 {
-    public class ChatMessageItemViewModel
+    public class ChatMessageItemViewModel : BaseViewModel
     {
         #region Properties
 
@@ -17,6 +17,7 @@ namespace ChatApplication
         public DateTimeOffset MessageSendTime { get; set; }
 
         public bool SendByMe { get; set; }
+
 
         #endregion
 

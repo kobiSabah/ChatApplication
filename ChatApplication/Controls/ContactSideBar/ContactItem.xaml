@@ -13,7 +13,7 @@
                 Background="{x:Null}" 
                 HorizontalAlignment="Left">
             <Border.InputBindings>
-                <MouseBinding MouseAction="LeftClick" Command="{Binding OpenMessageCommand}"></MouseBinding>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding OpenMessageCommand}"/>
             </Border.InputBindings>
 
             <!-- Contact info -->

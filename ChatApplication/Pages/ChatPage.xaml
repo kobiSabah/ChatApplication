@@ -28,22 +28,28 @@
 
 
             <!-- Chat page -->
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" DataContext="{x:Static local:ContactItemDesignModel.Instance}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
-            <!-- Chat title -->
-            <local:ContactTitleControl Grid.Row="0"/>
 
-            <!-- Chat message -->
-            <local:MessageItemListControl Grid.Row="1"/>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <!-- Chat controls -->
-            <local:ChatMessageControls Grid.Row="2"/>
+                <!-- Chat title -->
+                <local:ContactTitleControl Grid.Row="0"/>
 
+                <!-- Chat message -->
+                <local:MessageItemListControl  Grid.Row="1"/>
+
+                <!-- Chat controls -->
+                <local:ChatMessageControls Grid.Row="2"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
