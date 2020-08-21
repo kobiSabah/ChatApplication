@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:ChatApplication"
              mc:Ignorable="d"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:core="clr-namespace:ChatApplication.Core;assembly=ChatApplication.Core"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
@@ -14,7 +15,7 @@
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="60" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal" DataContext="{x:Static local:ContactItemDesignModel.Instance }">
+    <StackPanel Orientation="Horizontal" DataContext="{x:Static core:ContactItemDesignModel.Instance }">
         <!-- Profile picture -->
         <Border Width="40"
                 Height="40"

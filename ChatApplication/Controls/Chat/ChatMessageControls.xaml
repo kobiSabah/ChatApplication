@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:ChatApplication"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:core="clr-namespace:ChatApplication.Core;assembly=ChatApplication.Core"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
@@ -14,7 +15,7 @@
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="150" d:DesignWidth="800">
-    <Grid d:DataContext="{x:Static local:ChatMessageListDesignModel.Instance}">
+    <Grid d:DataContext="{x:Static core:ChatMessageListDesignModel.Instance}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>

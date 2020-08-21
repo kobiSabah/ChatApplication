@@ -66,8 +66,10 @@
 
             </Grid>
 
-                <Frame Grid.Row="1" Name="MainFrame"
-                       Content="{Binding CurrentPage,Converter={local:PageConverter}}"/>
+                <Frame Grid.Row="1"
+                       Content="{Binding ApplicationViewModel.CurrentPage, 
+                    Source = {x:Static local:ViewModelLocator.Instance},
+                    Converter={local:PageConverter}}"/>
             
         </Grid>
     </Border>

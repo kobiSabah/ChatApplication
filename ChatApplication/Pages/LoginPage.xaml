@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChatApplication"
+      xmlns:core="clr-namespace:ChatApplication.Core;assembly=ChatApplication.Core"
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="300"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -17,7 +18,7 @@
       Title="LoginPage">
 
     <StackPanel Width="300" Height="350" Margin="0,30,0,0"
-                DataContext="{x:Static local:LoginPageDesignModel.Instance}">
+                DataContext="{x:Static core:LoginPageDesignModel.Instance}">
         <!-- Login text -->
         <TextBlock Text="Login"
                    Margin="30,0,0,0"
@@ -35,6 +36,7 @@
 
             <!-- Username text box -->
             <TextBox VerticalContentAlignment="Center"
+                     Name ="UserNameTextBox"
                      materialDesign:HintAssist.Hint="Username"
                      materialDesign:BottomDashedLineAdorner.Brush="{StaticResource DarkBlueBrush}"
                      Foreground="{StaticResource DarkBlueBrush}"
@@ -49,14 +51,15 @@
             <materialDesign:PackIcon Kind="Key" HorizontalAlignment="Center"/>
 
             <!-- Password field -->
-            <PasswordBox VerticalContentAlignment="Center"
+            <TextBox VerticalContentAlignment="Center"
+                         Name="PasswordBox"
                          materialDesign:BottomDashedLineAdorner.Brush="{StaticResource DarkBlueBrush}"
                          materialDesign:HintAssist.Hint="Password"
                          Foreground="{StaticResource DarkBlueBrush}"
                          Width="200"
                          Margin="20,0,0,0">
 
-            </PasswordBox>
+            </TextBox>
         </StackPanel>
 
         <StackPanel>
@@ -68,8 +71,13 @@
                     Foreground="{StaticResource DarkBlueBrush}"
                     BorderThickness="0.5"
                     BorderBrush="White"
-                    Command="{Binding OpenLoginCommand}"
-                    >
+                    Command="{Binding LoginCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{local:MultiParameterConverter}">
+                        <Binding ElementName="UserNameTextBox" Path="Text"/>
+                        <Binding ElementName="PasswordBox" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
             </Button>
         </StackPanel>
 
@@ -110,7 +118,7 @@
                     Foreground="{StaticResource DarkBlueBrush}"
                     BorderThickness ="0.5"
                     BorderBrush="White">
-                <materialDesign:PackIcon Kind="Twitter"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="Twitter"/>
             </Button>
         </StackPanel>
 

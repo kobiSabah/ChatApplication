@@ -1,24 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ChatApplication.Core;
+using Ninject;
 
 namespace ChatApplication
 {
-    public class PageConverter : BaseConverter<PageConverter>
+    public class IoCConverter : BaseConverter<IoCConverter>
     {
         public override object Convert(object i_Value, Type i_TargetType, object i_Parameter, CultureInfo i_Culture)
         {
-            switch((eApplicationPage)i_Value)
+            switch((string)i_Parameter)
             {
-                case eApplicationPage.Login:
-                    return new LoginPage();
-
-                case eApplicationPage.Register:
-                    return new RegisterPage();
-
-                case eApplicationPage.Chat:
-                    return new ChatPage();
+                case nameof(ApplicationViewModel):
+                    return IoC.Kernel.Get<ApplicationViewModel>();
 
                 default:
                     Debugger.Break();
