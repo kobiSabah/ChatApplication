@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChatApplication"
+      xmlns:core="clr-namespace:ChatApplication.Core;assembly=ChatApplication.Core"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -18,7 +19,9 @@
     <Grid>
 
         <!-- Login text block -->
-        <StackPanel Margin="10,10,0,0">
+        <StackPanel 
+            Margin="10,10,0,0"
+            DataContext="{x:Static core:RegisterPageDesignModel.Instance}">
             <TextBlock Text="Register" Foreground="{StaticResource DarkBlueBrush}" FontSize="20" FontWeight="Bold" VerticalAlignment="Bottom" Margin="5,0,0,20"  />
             <Grid>
                 <Grid.RowDefinitions>
@@ -38,37 +41,70 @@
 
                 <!-- First Name -->
                 <materialDesign:PackIcon Kind="AccountBox" VerticalAlignment="Center" Margin="3"/>
-                <TextBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="First Name" Width="250" Margin="5" CaretBrush="#FF35646E"/>
+                <TextBox
+                    Grid.Row="0" 
+                    Grid.Column="0" 
+                    materialDesign:HintAssist.Hint="First Name" 
+                    Width="250" 
+                    Margin="5" 
+                    CaretBrush="#FF35646E"
+                    Name="firstNameTextBox"/>
 
                 <!-- Last Name -->
                 <materialDesign:PackIcon Kind="AccountBox" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="3"/>
-                <TextBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Last Name" Width="250" Margin="5" CaretBrush="#FF35646E"/>
+                <TextBox 
+                    Grid.Row="0" 
+                    Grid.Column="1" 
+                    materialDesign:HintAssist.Hint="Last Name" 
+                    Width="250" 
+                    Margin="5" 
+                    CaretBrush="#FF35646E"
+                    Name="lastNameTextBox"/>
 
-                <!-- Birthday -->
-                <materialDesign:PackIcon Grid.Column="0" Grid.Row="2" Kind="BirthdayCake" VerticalAlignment="Center" Margin="3"/>
-                <DatePicker Grid.Row="2" Grid.Column="0" Width="250" Margin="5" materialDesign:HintAssist.Hint="Birthday" ></DatePicker>
-
-                <!-- Phone Number -->
-                <materialDesign:PackIcon Grid.Column="1" Grid.Row="1" Kind="Phone" VerticalAlignment="Center" Margin="3"/>
-                <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Phone Number" Width="250" Margin="5"></TextBox>
-
+              
                 <!-- Mail -->
                 <materialDesign:PackIcon Grid.Column="0" Grid.Row="1" Kind="Mail" VerticalAlignment="Center" Margin="3"/>
-                <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Mail Adders" Width="250" Margin="5" CaretBrush="#FF35646E"/>
+                <TextBox 
+                    Grid.Row="1"
+                    Grid.Column="0" 
+                    materialDesign:HintAssist.Hint="Mail Adders" 
+                    Width="250" 
+                    Margin="5" 
+                    CaretBrush="#FF35646E"
+                    Name="emailTextBox"/>
 
 
                 <!-- NickName -->
                 <materialDesign:PackIcon Grid.Column="0" Grid.Row="3" Kind="Account" VerticalAlignment="Center" Margin="3"/>
-                <TextBox Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="Nickname" Width="250" Margin="5"></TextBox>
+                <TextBox 
+                    Grid.Row="3" 
+                    Grid.Column="0" 
+                    materialDesign:HintAssist.Hint="Nickname" 
+                    Width="250"
+                    Margin="5"
+                    Name="usernameTextBox"></TextBox>
 
 
                 <!-- Password -->
                 <materialDesign:PackIcon Grid.Column="0" Grid.Row="4" Kind="Key" VerticalAlignment="Center" Margin="3"/>
-                <PasswordBox Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="Password" Width="250" Margin="5"></PasswordBox>
+                <TextBox 
+                    Grid.Row="4"
+                    Grid.Column="0" 
+                    materialDesign:HintAssist.Hint="Password"
+                    Width="250" 
+                    Margin="5"
+                    Name="passwordTextBox"></TextBox>
 
                 <!-- Password verify -->
                 <materialDesign:PackIcon Grid.Column="0" Grid.Row="5" Kind="Key" VerticalAlignment="Center" Margin="3"/>
-                <PasswordBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="Password verify" Width="250" Margin="5"></PasswordBox>
+                <TextBox 
+                    Grid.Row="5" 
+                    Grid.Column="0" 
+                    materialDesign:HintAssist.Hint="Password verify" 
+                    Width="250" 
+                    Margin="5"
+                    Name="passwordVerifyTextBox"
+                    ></TextBox>
 
                 <!-- Image -->
                 <materialDesign:PackIcon Grid.Row="5" Grid.Column="1" Kind="ImageAdd"></materialDesign:PackIcon>
@@ -79,10 +115,26 @@
                     </Image>
                 </Grid>
             </Grid>
-            <!-- Upload image -->
+            <!-- Register button -->
 
-            <Button Margin="0,10,40,0" Content="Upload" Background="{StaticResource DarkBlueBrush}" Width="100" HorizontalAlignment="Right"/>
-
+            <Button
+                Margin="0,10,40,0" 
+                Content="Register" 
+                Background="{StaticResource DarkBlueBrush}" 
+                Width="100" 
+                HorizontalAlignment="Right"
+                Command="{Binding RegisterCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{local:MultiParameterConverter}">
+                        <Binding ElementName="firtNameTextBox" Path="Text"/>
+                        <Binding ElementName="lastNameTextBox" Path="Text"/>
+                        <Binding ElementName="usernameTextBox" Path="Text"/>
+                        <Binding ElementName="emailTextBox" Path="Text"/>
+                        <Binding ElementName="passwordTextBox" Path="Text"/>
+                        <Binding ElementName="passwordVerifyTextBox" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

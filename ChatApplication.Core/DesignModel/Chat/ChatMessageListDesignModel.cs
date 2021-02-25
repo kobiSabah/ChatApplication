@@ -1,6 +1,13 @@
-﻿using System;
+﻿using ChatApplication.Core.ApiDataModel.Requests;
+using ChatApplication.Core.ApiDataModel.Responses;
+using Newtonsoft.Json;
+using Ninject;
+using System;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ChatApplication.Core
 {

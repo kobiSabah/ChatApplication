@@ -69,7 +69,6 @@ namespace ChatApplication.Core
                                                            };
 
         }
-
         #endregion
     }
 }

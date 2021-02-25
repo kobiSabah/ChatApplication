@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security;
-using System.Text;
-
-namespace ChatApplication.Core
+﻿namespace ChatApplication.Core
 {
     /// <summary>
     /// The login credentials data representation
@@ -13,7 +8,7 @@ namespace ChatApplication.Core
         /// <summary>
         /// The username or the Email
         /// </summary>
-        public string UserName { get; set; }
+        public string Email { get; set; }
         /// <summary>
         /// The user password 
         /// </summary>

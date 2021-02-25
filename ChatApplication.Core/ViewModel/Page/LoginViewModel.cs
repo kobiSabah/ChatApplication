@@ -19,7 +19,7 @@ namespace ChatApplication.Core
         #region Constructor
         public LoginViewModel()
         {
-            LoginCommand = new RelayParameterizedCommand(async (i_Parameter) => await ChatPageAsync(i_Parameter));
+            LoginCommand = new RelayParameterizedCommand(async (i_Parameter) => await LoginAsync(i_Parameter));
             OpenRegisterCommand = new RelayCommand(async () => await RegisterPageAsync());
         }
 
@@ -31,15 +31,16 @@ namespace ChatApplication.Core
              TODO:: 1. Change to PasswordBox and use SecureString.
              TODO:: 2. Using dependance for switching between the pages.
          */
-        private async Task ChatPageAsync(object i_Parameter)
+
+        private async Task LoginAsync(object i_Parameters)
         {
-            if(i_Parameter != null)
+            if (i_Parameters != null)
             {
-                if (i_Parameter is object[] parameter)
+                if (i_Parameters is object[] parameter)
                 {
                     var loginCredentials = new LoginCredentialsData()
                     {
-                        UserName = parameter[0].ToString(),
+                        Email = parameter[0].ToString(),
                         Password = parameter[1].ToString()
                     };
 
@@ -47,24 +48,26 @@ namespace ChatApplication.Core
                     {
                         StringContent content = new StringContent(JsonConvert.SerializeObject(loginCredentials), Encoding.UTF8, "application/json");
 
-                        using (var response = await httpClient.PostAsync("http://localhost:5001/api/login", content))
+                        using (var response = await httpClient.PostAsync("https://localhost:44333/api/v1/identity/login", content))
                         {
-                            string apiResponse = await response.Content.ReadAsStringAsync();
-                            var result = JsonConvert.DeserializeObject<LogInResultDataModel>(apiResponse);
+                            if (response.IsSuccessStatusCode)
+                            {
+                                string apiResponse = await response.Content.ReadAsStringAsync();
+                                var result = JsonConvert.DeserializeObject<LogInResultDataModel>(apiResponse);
+
+                                IoC.Kernel.Get<ApplicationViewModel>().Token = result.Token;
+                                IoC.Kernel.Get<ApplicationViewModel>().CurrentPage = eApplicationPage.Chat;
+                            }
                         }
                     }
-                    
-                    IoC.Kernel.Get<ApplicationViewModel>().CurrentPage = eApplicationPage.Chat;
                 }
             }
-
         }
 
         private async Task RegisterPageAsync()
         {
             IoC.Kernel.Get<ApplicationViewModel>().CurrentPage = eApplicationPage.Register;
             await Task.Delay(10);
-
         }
         #endregion
 
